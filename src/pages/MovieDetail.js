@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { useLocation } from "react-router-dom";
 import { MovieState } from '../movieState';
-
+//Animations
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+ 
 const MovieDetail = () => {
     const location = useLocation(); // For accessing the current path
     const url = location.pathname;
@@ -21,24 +24,28 @@ const MovieDetail = () => {
     
     
     return (
-        <Details>
-            <HeadLine>
-                <h2>{movie.title}</h2>
-                <img src={movie.mainImg} alt="movie" />
-            </HeadLine>
-            <Awards>
-                {movie.awards.map((award) => (
-                    <Award title={award.title} description={award.description}  />
-                ))}
-            </Awards>
-            <ImageDisplay>
-                <img src={movie.secondaryImg} alt="movie" />
-            </ImageDisplay>
-        </Details>
+        <>
+            {movie && (
+                <Details exit="exit" variants={pageAnimation} initial="hidden" animate="show">
+                    <HeadLine>
+                        <h2>{movie.title}</h2>
+                        <img src={movie.mainImg} alt="movie" />
+                    </HeadLine>
+                    <Awards>
+                        {movie.awards.map((award) => (
+                            <Award title={award.title} description={award.description}  />
+                        ))}
+                    </Awards>
+                    <ImageDisplay>
+                        <img src={movie.secondaryImg} alt="movie" />
+                    </ImageDisplay>
+                </Details>
+            )}
+        </>
     )
 }
 
-const Details = styled.div`
+const Details = styled(motion.div)`
     color: white;
 `
 
