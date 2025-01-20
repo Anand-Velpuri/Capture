@@ -5,6 +5,7 @@ import { MovieState } from '../movieState';
 //Animations
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
+import ScrollTop from '../components/ScrollTop';
  
 const MovieDetail = () => {
     const location = useLocation(); // For accessing the current path
@@ -27,6 +28,7 @@ const MovieDetail = () => {
         <>
             {movie && (
                 <Details exit="exit" variants={pageAnimation} initial="hidden" animate="show">
+                    
                     <HeadLine>
                         <h2>{movie.title}</h2>
                         <img src={movie.mainImg} alt="movie" />
@@ -39,6 +41,7 @@ const MovieDetail = () => {
                     <ImageDisplay>
                         <img src={movie.secondaryImg} alt="movie" />
                     </ImageDisplay>
+                    <ScrollTop/>
                 </Details>
             )}
         </>
