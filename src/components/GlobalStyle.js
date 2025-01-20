@@ -33,9 +33,7 @@ const GlobalStyle = createGlobalStyle`
         &:hover {
             background: #23d997;
             color: white;
-        }
-        
-        
+        }  
         
     }
 

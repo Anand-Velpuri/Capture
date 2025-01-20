@@ -12,7 +12,7 @@ const MovieDetail = () => {
     const url = location.pathname;
 
     
-    const [movies, setMovies] = useState(MovieState)
+    const [movies] = useState(MovieState)
     const [movie, setMovie] = useState(movies[0])
     
     

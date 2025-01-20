@@ -21,7 +21,7 @@ const AboutSection = () => {
                     </Hide>
 
                     <Hide>
-                        <motion.h2 variants={titleAnim}>true.</motion.h2>
+                        <motion.h2 variants={titleAnim} >true.</motion.h2>
                     </Hide>
                 </motion.div>
 
@@ -43,5 +43,6 @@ const AboutSection = () => {
 }
 
 //Styled Components
+
 
 export default AboutSection;
